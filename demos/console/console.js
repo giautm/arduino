@@ -50,6 +50,10 @@
         port.onReceiveError = error => {
           t.io.println('Receive error: ' + error);
         };
+        while (true) {
+          port.send(textEncoder.encode("Xin chao.\n")).catch(error => {
+            t.io.println('Send error: ' + error);
+          });        }
       }, error => {
         t.io.println('Connection error: ' + error);
       });
